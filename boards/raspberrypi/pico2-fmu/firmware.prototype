@@ -1,0 +1,12 @@
+{
+    "board_id": 99,
+    "magic": "PXFWv1",
+    "description": "Pico2W FMU — RP2350 dual-core FPU + PX4IO UART flight controller",
+    "summary": "Pico2-FMU",
+    "image": "",
+    "version": "",
+    "image_maxsize": 3932160,
+    "arch": "cortex-m33",
+    "toolchain": "arm-none-eabi",
+    "build_target": "rpi/pico2-fmu/default"
+}

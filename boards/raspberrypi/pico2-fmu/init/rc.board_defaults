@@ -1,0 +1,33 @@
+#!/bin/sh
+# rc.board_defaults — rpi/pico2-fmu
+# Hardware driver startup only — flight stack is started by rcS
+
+# IMU — MPU6500 on SPI0, CS=GP5
+mpu6500 -s -b 0 -c 1 -R 0 start
+
+# Barometer — BMP280 on I2C0
+bmp280 -I -b 0 start
+
+# Magnetometer — HMC5883 on I2C1
+hmc5883 -I -b 1 -R 0 start
+
+# GPS — PIO UART on /dev/ttyS2
+gps start -d /dev/ttyS2 -p ubx
+
+# PX4IO — STM32F103 over UART1 (/dev/ttyS1)
+px4io start /dev/ttyS1
+
+# MAVLink TELE /NSH on UART0 
+nshterm /dev/ttyS0 &
+# mavlink start -d /dev/ttyS0 -b 57600 -m normal
+
+# Instance 1 on USB CDC — QGroundControl
+mavlink start -d /dev/ttyACM0 -b 57600 -m onboard
+
+# Board-specific parameter defaults
+# These only apply if param has never been set (first boot)
+param set-default SYS_AUTOSTART    4001     # generic quadrotor X airframe
+param set-default SYS_USE_IO       1        # tell PX4 to use IO coprocessor
+#param set-default SER_TEL1_BAUD    57600    # UART0 telemetry baud
+param set-default IMU_GYRO_RATEMAX 2000     # 2kHz gyro — matches Core 1 task rate
+param set-default BAT_N_CELLS      3        # 3S battery default
