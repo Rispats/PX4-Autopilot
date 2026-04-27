@@ -12,6 +12,16 @@ If a listed parameter is missing from the Firmware see: [Finding/Updating Parame
 
 ## ADC
 
+### ADC_ADS7128_REFV (`FLOAT`) {#ADC_ADS7128_REFV}
+
+Applied reference Voltage.
+
+The voltage applied to the ADS7128 board as reference
+
+| Reboot  | minValue | maxValue | increment | default | unit | Read-Only |
+| ------- | -------- | -------- | --------- | ------- | ---- | --------- |
+| &check; | 2.35     | 5.5      | 0.01      | 3.3     | V    | &nbsp;    |
+
 ### ADC_ADS7953_EN (`INT32`) {#ADC_ADS7953_EN}
 
 Enable ADS7953.
@@ -31,16 +41,6 @@ The voltage applied to the ADS7953 board as reference
 | Reboot  | minValue | maxValue | increment | default | unit | Read-Only |
 | ------- | -------- | -------- | --------- | ------- | ---- | --------- |
 | &check; | 2.0      | 3.0      | 0.01      | 2.5     | V    | &nbsp;    |
-
-### ADC_TLA2528_EN (`INT32`) {#ADC_TLA2528_EN}
-
-Enable TLA2528.
-
-Enable the driver for the TLA2528
-
-| Reboot  | minValue | maxValue | increment | default      | unit | Read-Only |
-| ------- | -------- | -------- | --------- | ------------ | ---- | --------- |
-| &check; |          |          |           | Disabled (0) |      | &nbsp;    |
 
 ### ADC_TLA2528_REFV (`FLOAT`) {#ADC_TLA2528_REFV}
 
